@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+
+<HBox prefHeight="21.0" prefWidth="600.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.billdiary.ui.MenuBarController">
+	<!-- TODO Add Nodes -->
+	<children>
+            <MenuBar prefHeight="25.0" prefWidth="271.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="New">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Invoice " />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Shop Info">
+                  <items>
+                  <MenuItem  mnemonicParsing="false" onAction="#addShopDetails" text="Add Shop Details" />
+                  <MenuItem mnemonicParsing="false" text="Logo Setup" />
+                  <MenuItem mnemonicParsing="false" text="Taxes" />
+                  </items>
+                </Menu>
+            <Menu mnemonicParsing="false" text="Shop Inventory">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#addProductDetails" text="Add Products" />
+                  <MenuItem mnemonicParsing="false" text="Stock Availability" />
+              </items>
+            </Menu>
+                <Menu mnemonicParsing="false" onAction="#initialize" text="Tools">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Backup Data" />
+                  <MenuItem mnemonicParsing="false" text="Product/Services Report" />
+                  <MenuItem mnemonicParsing="false" text="Manage Suppliers" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <Region prefHeight="25.0" prefWidth="138.0" HBox.hgrow="ALWAYS" />
+            <MenuBar prefHeight="25.0" prefWidth="177.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="Help" />
+                <Menu mnemonicParsing="false" text="About">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Contact" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Logout" />
+              </menus>
+            </MenuBar>
+         </children>
+         <opaqueInsets>
+            <Insets top="2.0" />
+         </opaqueInsets>
+</HBox>

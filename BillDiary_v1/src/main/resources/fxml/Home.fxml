@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.shape.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+
+<StackPane fx:id="homepage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" stylesheets="@../css/HomePage.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.billdiary.ui.HomeController">
+   <children>
+      <BorderPane id="borderpane" fx:id="borderpane" prefHeight="448.0" prefWidth="825.0">
+         <bottom>
+            <fx:include source="Footer.fxml" />
+         </bottom>
+         <top>
+            <fx:include source="MenuBar.fxml" />
+         </top>
+         <left>
+            <GridPane prefHeight="556.0" prefWidth="298.0" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="143.0" minWidth="10.0" prefWidth="61.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="247.0" minWidth="10.0" prefWidth="237.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="181.0" minHeight="0.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="413.0" minHeight="4.0" prefHeight="48.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="457.0" minHeight="0.0" prefHeight="51.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="443.0" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="443.0" minHeight="10.0" prefHeight="364.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Circle fill="DODGERBLUE" radius="9.0" stroke="BLACK" strokeType="INSIDE">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                  </Circle>
+                  <Hyperlink onAction="#manageProducts" text="Manage Products" GridPane.columnIndex="1" />
+                  <Circle fill="DODGERBLUE" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                  </Circle>
+                  <Circle fill="DODGERBLUE" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                  </Circle>
+                  <Hyperlink text="Manage Customers" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Hyperlink text="Manage Suppliers" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Circle fill="DODGERBLUE" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                  </Circle>
+                  <Hyperlink text="Manage Purchase Orders" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+               </children>
+            </GridPane>
+         </left>
+         <center>
+            <AnchorPane id="CenterAnchorpane" fx:id="CenterAnchorpane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <BarChart layoutX="10.0" layoutY="25.0" prefHeight="271.0" prefWidth="355.0" translateY="50.0">
+                    <xAxis>
+                      <CategoryAxis label="Date" side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis label="Total Sale" side="LEFT" upperBound="500.0" />
+                    </yAxis>
+                  </BarChart>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</StackPane>

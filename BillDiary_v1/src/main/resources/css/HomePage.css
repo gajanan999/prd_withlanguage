@@ -1,0 +1,41 @@
+root { 
+    display: block;
+   -fx-border-color: #BFC9CA;
+   -fx-background-radius: 20;
+   -fx-border-radius: 20;
+   -fx-padding: 10 10 10 10;
+}
+.root {
+-fx-background-color:   #f8f9f9;
+}
+
+
+ .menu-bar{
+  -fx-background-color:white;
+  -fx-border-color:white;
+
+}
+
+.menu-bar .label {
+    
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: "black";
+
+}
+
+
+.menu:hover {
+    -fx-background-color: #4f8ac9;
+}
+
+.menu-item .label{
+     
+    -fx-label-line-length: 8;
+     
+}
+
+#CenterAnchorpane
+{
+	-fx-border-color: #2e8b57;
+    -fx-border-width: 2px;
+}
