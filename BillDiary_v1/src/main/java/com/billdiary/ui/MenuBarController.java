@@ -1,11 +1,18 @@
 package com.billdiary.ui;
 
+import java.util.Locale;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.billdiary.config.SpringFxmlLoader;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -15,6 +22,11 @@ public class MenuBarController {
 	//ResourceBundle bundle = ResourceBundle.getBundle("resources.UIResources");
 	@Autowired
 	public LoginController loginController;
+	
+	@FXML Menu rightMenu;
+	
+	
+	
 	 public MenuBarController() {
 		// TODO Auto-generated constructor stub
 	}
@@ -22,7 +34,7 @@ public class MenuBarController {
 	@FXML private void addShopDetails()
 	{
 		
-		SpringFxmlLoader loader=MainController.getLoader();
+		SpringFxmlLoader loader=SpringFxmlLoader.getInstance();
 		//ResourceBundle bundle = ResourceBundle.getBundle("resources.UIResources");
 		
 		
@@ -44,7 +56,7 @@ public class MenuBarController {
 	@FXML private void addProductDetails()
 	{
 		
-		SpringFxmlLoader loader=MainController.getLoader();
+		SpringFxmlLoader loader=SpringFxmlLoader.getInstance();
 		AnchorPane addProduct=(AnchorPane) loader.load("/fxml/AddProductDetails.fxml");
 		
 
@@ -84,6 +96,20 @@ public class MenuBarController {
 		//balance.setCellValueFactory(new PropertyValueFactory<BillInfo,Float>("balance"));
 		tbid.setItems(data);
 		*/
+	}
+
+	@FXML public void setHindiLanguage(ActionEvent t) {
+		
+		Locale locale = new Locale("hi");
+		SpringFxmlLoader.setLoc(locale);
+		
+	}
+	
+	@FXML public void setEnglishLanguage(ActionEvent t) {
+		
+		Locale locale = new Locale("en");
+		SpringFxmlLoader.setLoc(locale);
+		
 	}
 
 }

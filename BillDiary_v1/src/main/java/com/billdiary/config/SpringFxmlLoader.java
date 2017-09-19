@@ -20,8 +20,39 @@ public class SpringFxmlLoader {
 
 	private static final ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 			"applicationContext.xml");
-	
 	private static Locale loc;
+	private static MessageSourceResourceBundle bundle;
+	
+	public static MessageSourceResourceBundle getBundle() {
+		if(bundle==null)
+		{
+			bundle =new MessageSourceResourceBundle(applicationContext.getBean(MessageSource.class),loc);
+		}
+		return bundle;
+	}
+
+	public static void setBundle(MessageSourceResourceBundle bundle) {
+		SpringFxmlLoader.bundle =new MessageSourceResourceBundle(applicationContext.getBean(MessageSource.class),loc);
+	}
+
+	private static SpringFxmlLoader springFxmlLoader=null;
+	
+	private SpringFxmlLoader()
+	{
+		
+	}
+	
+	// static method to create instance of SpringFxmlLoader class
+    public static SpringFxmlLoader getInstance()
+    {
+        if (springFxmlLoader == null)
+        	springFxmlLoader = new SpringFxmlLoader();
+ 
+        return springFxmlLoader;
+    }
+	
+	
+	
 	public static Locale getLoc() {
 		return loc;
 	}
@@ -30,7 +61,9 @@ public class SpringFxmlLoader {
 		SpringFxmlLoader.loc = loc;
 	}
 
-	private static MessageSourceResourceBundle bundle=new MessageSourceResourceBundle(applicationContext.getBean(MessageSource.class),loc);
+	
+	
+	
 
 	public Object load(String url) {
 
@@ -50,9 +83,16 @@ public class SpringFxmlLoader {
 			/**
 			 * Here we set the Locale (For language change)
 			 */
-			Locale locale2 = new Locale("hi");
-			setLoc(locale2);
-			loader.setResources(bundle);
+			
+			if(loc==null)
+			{
+				loc = new Locale("en");
+			}
+			System.out.println(loc.getDisplayLanguage());
+			setLoc(loc);
+			MessageSourceResourceBundle bundle=getBundle();
+			setBundle(bundle);
+			loader.setResources(getBundle());
 			return loader.load(fxmlStream);
 		} catch (IOException ioException) {
 			throw new RuntimeException(ioException);

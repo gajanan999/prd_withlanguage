@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.GridPane?>
 
-<HBox prefHeight="21.0" prefWidth="600.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.billdiary.ui.MenuBarController">
+<HBox prefHeight="25.0" prefWidth="621.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.billdiary.ui.MenuBarController">
 	<!-- TODO Add Nodes -->
 	<children>
             <MenuBar prefHeight="25.0" prefWidth="271.0">
@@ -19,7 +19,7 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Shop Info">
                   <items>
-                  <MenuItem  mnemonicParsing="false" onAction="#addShopDetails" text="Add Shop Details" />
+                  <MenuItem mnemonicParsing="false" onAction="#addShopDetails" text="Add Shop Details" />
                   <MenuItem mnemonicParsing="false" text="Logo Setup" />
                   <MenuItem mnemonicParsing="false" text="Taxes" />
                   </items>
@@ -39,9 +39,14 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <Region prefHeight="25.0" prefWidth="138.0" HBox.hgrow="ALWAYS" />
-            <MenuBar prefHeight="25.0" prefWidth="177.0">
+            <Region HBox.hgrow="ALWAYS" />
+            <MenuBar>
               <menus>
+            <Menu fx:id="rightMenu"  mnemonicParsing="false" text="Language">
+               <items>
+                  <MenuItem  mnemonicParsing="false"  text="English" onAction="#setEnglishLanguage"/>
+                  <MenuItem  mnemonicParsing="false" text="Hindi" onAction="#setHindiLanguage" />
+               </items></Menu>
                 <Menu mnemonicParsing="false" text="Help" />
                 <Menu mnemonicParsing="false" text="About">
                   <items>

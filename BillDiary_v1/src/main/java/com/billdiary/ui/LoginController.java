@@ -86,7 +86,7 @@ public class LoginController {
     			//String m=loader.getMessage("Main.Title");
     			//title=new SimpleStringProperty(m);
     			((Node)(event.getSource())).getScene().getWindow().hide();
-    			SpringFxmlLoader loader=mainController.getLoader();
+    			SpringFxmlLoader loader=SpringFxmlLoader.getInstance();
     			root1= (StackPane) loader.load("/fxml/Home.fxml");
     			 Scene scene = new Scene(root1,600,400);
     			 

@@ -9,7 +9,11 @@ root {
 -fx-background-color:   #f8f9f9;
 }
 
-
+.BarChart
+{
+	-fx-padding: 10 10 10 10;	
+	
+}
  .menu-bar{
   -fx-background-color:white;
   -fx-border-color:white;

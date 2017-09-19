@@ -29,13 +29,12 @@ public class HomeController {
 		manager.setVisible(false);
 		//homeController.CenterAnchorpane.setVisible(false);
 		//aa.getManagerScene();
-		SpringFxmlLoader loader=MainController.getLoader();
+		SpringFxmlLoader loader=SpringFxmlLoader.getInstance();
 		//ResourceBundle bundle = ResourceBundle.getBundle("resources.UIResources");
-		AnchorPane a=(AnchorPane) loader.load("/fxml/AddProductDetails.fxml");
+		AnchorPane addProductDetails=(AnchorPane) loader.load("/fxml/AddProductDetails.fxml");
 		BorderPane border=homeController.borderpane;
-		
-		
-		border.setCenter(a);
+		//border.setCenter(addProductDetails);
+		CenterAnchorpane.getChildren().add(addProductDetails);
 	}
 	
 	
