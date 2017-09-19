@@ -62,14 +62,18 @@
          <center>
             <AnchorPane id="CenterAnchorpane" fx:id="CenterAnchorpane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <BarChart layoutX="10.0" layoutY="25.0" prefHeight="271.0" prefWidth="355.0" translateY="50.0">
-                    <xAxis>
-                      <CategoryAxis label="Date" side="BOTTOM" />
-                    </xAxis>
-                    <yAxis>
-                      <NumberAxis label="Total Sale" side="LEFT" upperBound="500.0" />
-                    </yAxis>
-                  </BarChart>
+                  <StackPane fx:id="manager" prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <BarChart prefHeight="271.0" prefWidth="355.0">
+                          <xAxis>
+                            <CategoryAxis label="Date" side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis label="Total Sale" side="LEFT" upperBound="500.0" />
+                          </yAxis>
+                        </BarChart>
+                     </children>
+                  </StackPane>
                </children>
             </AnchorPane>
          </center>

@@ -16,6 +16,7 @@ public class HomeController {
 	@FXML public  BorderPane borderpane;
 	@FXML public VBox rightvbox;
 	@FXML public AnchorPane CenterAnchorpane;
+	@FXML public StackPane manager;
 	@Autowired
 	public HomeController homeController;
 	public  StackPane getRoot() {
@@ -25,7 +26,8 @@ public class HomeController {
 	{
 		
 		System.out.println(homeController.CenterAnchorpane.getChildren());
-		homeController.CenterAnchorpane.setVisible(false);
+		manager.setVisible(false);
+		//homeController.CenterAnchorpane.setVisible(false);
 		//aa.getManagerScene();
 		SpringFxmlLoader loader=MainController.getLoader();
 		//ResourceBundle bundle = ResourceBundle.getBundle("resources.UIResources");

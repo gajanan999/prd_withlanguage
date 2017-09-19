@@ -1,6 +1,9 @@
 package com.billdiary.ui;
 
 import java.sql.SQLException;
+
+import org.apache.log4j.Logger;
+
 import com.billdiary.config.SpringFxmlLoader;
 import com.billdiary.dao.CreateSchema;
 
@@ -12,7 +15,7 @@ import javafx.stage.Stage;
 
 public class MainController extends Application{
 	
-	//final static Logger LOGGER = Logger.getLogger(MainController.class);
+	final static Logger LOGGER = Logger.getLogger(MainController.class);
 	
 	private static final SpringFxmlLoader loader = new SpringFxmlLoader();
 	
@@ -22,7 +25,7 @@ public class MainController extends Application{
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-	//	LOGGER.debug("Entering Class MainController : method : main.");
+		LOGGER.debug("Entering Class MainController : method : main.");
 		/**
 		 * Configuration of Spring 
 		 */
