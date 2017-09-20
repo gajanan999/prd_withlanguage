@@ -6,7 +6,7 @@ import org.apache.log4j.Logger;
 
 import com.billdiary.config.SpringFxmlLoader;
 import com.billdiary.dao.CreateSchema;
-
+import com.billdiary.utility.Constants;
 
 import javafx.application.Application;
 import javafx.scene.Parent;
@@ -39,7 +39,7 @@ public class MainController extends Application{
 		//Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/Login.fxml"));
 		//Stage stage = new Stage();
 		Scene scene = new Scene(root, 800, 600); 
-        stage.setTitle("Welcome to Application");
+        stage.setTitle(Constants.APPLICATION_TITLE);
         stage.setScene(scene);
         stage.show();	
 	}

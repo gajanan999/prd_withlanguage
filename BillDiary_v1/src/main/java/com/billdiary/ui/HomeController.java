@@ -17,8 +17,11 @@ public class HomeController {
 	@FXML public VBox rightvbox;
 	@FXML public AnchorPane CenterAnchorpane;
 	@FXML public StackPane manager;
+	
+	
 	@Autowired
 	public HomeController homeController;
+	
 	public  StackPane getRoot() {
 		return homepage;
 	}
@@ -32,12 +35,20 @@ public class HomeController {
 		SpringFxmlLoader loader=SpringFxmlLoader.getInstance();
 		//ResourceBundle bundle = ResourceBundle.getBundle("resources.UIResources");
 		AnchorPane addProductDetails=(AnchorPane) loader.load("/fxml/AddProductDetails.fxml");
-		BorderPane border=homeController.borderpane;
 		//border.setCenter(addProductDetails);
+		CenterAnchorpane.getChildren().clear();
 		CenterAnchorpane.getChildren().add(addProductDetails);
 	}
 	
-	
+	@FXML private void manageCustomers(ActionEvent event)
+	{
+		manager.setVisible(false);
+		SpringFxmlLoader loader=SpringFxmlLoader.getInstance();
+		//ResourceBundle bundle = ResourceBundle.getBundle("resources.UIResources");
+		AnchorPane manageCustomer=(AnchorPane) loader.load("/fxml/ManageCustomer.fxml");
+		CenterAnchorpane.getChildren().clear();
+		CenterAnchorpane.getChildren().add(manageCustomer);
+	}
 	/*public void getManagerScene()
 	{	
 		System.out.println(centerStackpane.getChildren());

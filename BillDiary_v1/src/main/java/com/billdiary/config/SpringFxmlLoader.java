@@ -22,7 +22,22 @@ public class SpringFxmlLoader {
 			"applicationContext.xml");
 	private static Locale loc;
 	private static MessageSourceResourceBundle bundle;
+	private static SpringFxmlLoader springFxmlLoader=null;
 	
+	
+	
+	private SpringFxmlLoader()
+	{
+		
+	}
+	// static method to create instance of SpringFxmlLoader class
+    public static SpringFxmlLoader getInstance()
+    {
+        if (springFxmlLoader == null)
+        	springFxmlLoader = new SpringFxmlLoader();
+ 
+        return springFxmlLoader;
+    }
 	public static MessageSourceResourceBundle getBundle() {
 		if(bundle==null)
 		{
@@ -35,24 +50,6 @@ public class SpringFxmlLoader {
 		SpringFxmlLoader.bundle =new MessageSourceResourceBundle(applicationContext.getBean(MessageSource.class),loc);
 	}
 
-	private static SpringFxmlLoader springFxmlLoader=null;
-	
-	private SpringFxmlLoader()
-	{
-		
-	}
-	
-	// static method to create instance of SpringFxmlLoader class
-    public static SpringFxmlLoader getInstance()
-    {
-        if (springFxmlLoader == null)
-        	springFxmlLoader = new SpringFxmlLoader();
- 
-        return springFxmlLoader;
-    }
-	
-	
-	
 	public static Locale getLoc() {
 		return loc;
 	}
@@ -60,11 +57,6 @@ public class SpringFxmlLoader {
 	public static void setLoc(Locale loc) {
 		SpringFxmlLoader.loc = loc;
 	}
-
-	
-	
-	
-
 	public Object load(String url) {
 
 		try (InputStream fxmlStream = SpringFxmlLoader.class.getResourceAsStream(url)) {

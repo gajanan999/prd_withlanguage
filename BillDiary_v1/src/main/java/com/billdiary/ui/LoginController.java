@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import com.billdiary.config.SpringFxmlLoader;
 import com.billdiary.model.User;
 import com.billdiary.service.LoginService;
+import com.billdiary.utility.Constants;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,6 +29,11 @@ public class LoginController {
 	
 	public static BorderPane root=new BorderPane();
 	public static StackPane root1= new StackPane();
+	
+	@Autowired
+	public LayoutController layoutController;
+	
+	
 	public static BorderPane getRoot() {
 		return root;
 	}
@@ -68,9 +74,6 @@ public class LoginController {
     @FXML protected void handleSignInButtonAction(ActionEvent event) {
     	
     //	LOGGER.debug("In method LoginController:handleSignInButtonAction Entry ");
-    	
-    	
-    	
     	String userName=textField.getText();
     	String password=passwordField.getText();
     	System.out.println("dffsdfds");
@@ -88,13 +91,18 @@ public class LoginController {
     			((Node)(event.getSource())).getScene().getWindow().hide();
     			SpringFxmlLoader loader=SpringFxmlLoader.getInstance();
     			root1= (StackPane) loader.load("/fxml/Home.fxml");
+    			
+    			//LayoutController layout=new LayoutController();
+    			layoutController.loadWindow(root1, Constants.APPLICATION_TITLE);
+    			
+    			/*
     			 Scene scene = new Scene(root1,600,400);
     			 
     		     Stage stage=new Stage();
     			 stage.setMaximized(true);
     		     stage.setTitle("BillDiary version 1.0");
-    		       stage.setScene(scene);
-    		        stage.show();
+    		     stage.setScene(scene);
+    		     stage.show();*/
     		}
     		else {
     			actiontarget.setText("Login failed");
@@ -111,13 +119,6 @@ public class LoginController {
     }
  
 	
-    public void loadWindow(Parent root,String title)
-	{
-		Stage stage = new Stage();
-		Scene scene = new Scene(root, 800, 600); 
-        stage.setTitle(title);
-        stage.setScene(scene);
-        stage.show();
-	}
+    
 	
 }

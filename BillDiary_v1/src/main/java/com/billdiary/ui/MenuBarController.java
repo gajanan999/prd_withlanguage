@@ -9,13 +9,9 @@ import com.billdiary.config.SpringFxmlLoader;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
 
 @Controller("MenuBarController")
 public class MenuBarController {
@@ -23,26 +19,23 @@ public class MenuBarController {
 	@Autowired
 	public LoginController loginController;
 	
+	@Autowired
+	public LayoutController layoutController;
+	
 	@FXML Menu rightMenu;
-	
-	
-	
-	 public MenuBarController() {
+	public MenuBarController() {
 		// TODO Auto-generated constructor stub
 	}
-	
 	@FXML private void addShopDetails()
 	{
 		
 		SpringFxmlLoader loader=SpringFxmlLoader.getInstance();
 		//ResourceBundle bundle = ResourceBundle.getBundle("resources.UIResources");
-		
-		
 		AnchorPane addShop=(AnchorPane) loader.load("/fxml/AddShopDetails.fxml");
-		
 		BorderPane root = new BorderPane();
-		 root.setCenter(addShop);
-		 
+		root.setCenter(addShop);
+		layoutController.loadWindow(root,"Add Shop Details" );
+		 /*
 		Scene scene = new Scene(root,800,600);
 			     Stage stage=new Stage();
 		 //stage.setMaximized(true);
@@ -50,7 +43,7 @@ public class MenuBarController {
 	     stage.setMinHeight(600);
 	     stage.setMinWidth(800);
 	       stage.setScene(scene);
-	        stage.show();
+	        stage.show();*/
 	        
 	}
 	@FXML private void addProductDetails()
@@ -58,11 +51,9 @@ public class MenuBarController {
 		
 		SpringFxmlLoader loader=SpringFxmlLoader.getInstance();
 		AnchorPane addProduct=(AnchorPane) loader.load("/fxml/AddProductDetails.fxml");
-		
-
 		BorderPane root = new BorderPane();
-		 root.setCenter(addProduct);
-		 loginController.loadWindow(root,"Add Product Details");
+		root.setCenter(addProduct);
+		layoutController.loadWindow(root,"Add Product Details");
 		/*Scene scene = new Scene(root,800,600);
 			     Stage stage=new Stage();
 		 //stage.setMaximized(true);
