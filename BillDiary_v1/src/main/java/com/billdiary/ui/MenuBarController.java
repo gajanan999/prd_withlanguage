@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.billdiary.config.SpringFxmlLoader;
+import com.billdiary.utility.Constants;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -34,7 +35,7 @@ public class MenuBarController {
 		AnchorPane addShop=(AnchorPane) loader.load("/fxml/AddShopDetails.fxml");
 		BorderPane root = new BorderPane();
 		root.setCenter(addShop);
-		layoutController.loadWindow(root,"Add Shop Details" );
+		layoutController.loadWindow(root,"Add Shop Details",Constants.POPUP_WINDOW_WIDTH,Constants.POPUP_WINDOW_HEIGHT);
 		 /*
 		Scene scene = new Scene(root,800,600);
 			     Stage stage=new Stage();
@@ -53,7 +54,7 @@ public class MenuBarController {
 		AnchorPane addProduct=(AnchorPane) loader.load("/fxml/AddProductDetails.fxml");
 		BorderPane root = new BorderPane();
 		root.setCenter(addProduct);
-		layoutController.loadWindow(root,"Add Product Details");
+		layoutController.loadWindow(root,"Add Product Details",Constants.POPUP_WINDOW_WIDTH,Constants.POPUP_WINDOW_HEIGHT);
 		/*Scene scene = new Scene(root,800,600);
 			     Stage stage=new Stage();
 		 //stage.setMaximized(true);

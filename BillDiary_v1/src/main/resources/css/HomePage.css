@@ -1,6 +1,6 @@
 root { 
     display: block;
-   -fx-border-color: #BFC9CA;
+   -fx-border-color: #f8f9f9;
    -fx-background-radius: 20;
    -fx-border-radius: 20;
    -fx-padding: 10 10 10 10;
@@ -10,7 +10,7 @@ root {
 }
 .Region{
 	
-	-fx-background-color:e2ebeb;
+	-fx-background-color:#f8f9f9;
   -fx-border-color:899292;
 }
 

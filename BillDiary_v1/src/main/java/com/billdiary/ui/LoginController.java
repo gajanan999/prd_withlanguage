@@ -93,7 +93,7 @@ public class LoginController {
     			root1= (StackPane) loader.load("/fxml/Home.fxml");
     			
     			//LayoutController layout=new LayoutController();
-    			layoutController.loadWindow(root1, Constants.APPLICATION_TITLE);
+    			layoutController.loadWindow(root1, Constants.APPLICATION_TITLE,Constants.WINDOW_WIDTH,Constants.WINDOW_HEIGHT);
     			
     			/*
     			 Scene scene = new Scene(root1,600,400);
