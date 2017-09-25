@@ -28,7 +28,7 @@ public class LoginDAO {
 		try {
 			Class.forName(Constants.DB_DRIVER);
 			 connection = DriverManager.getConnection(Constants.DB_URL,Constants.DB_USERNAME,Constants.DB_PASSWORD);
-			 st = connection.prepareStatement("select * from user2");
+			 st = connection.prepareStatement("select * from user");
 		     r1=st.executeQuery();
 		    while(r1.next())
 			   {

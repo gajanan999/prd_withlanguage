@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.shape.*?>
 <?import java.net.*?>
@@ -18,47 +19,6 @@
          <top>
             <fx:include source="MenuBar.fxml" />
          </top>
-         <left>
-            <GridPane prefHeight="550.0" prefWidth="250.0" BorderPane.alignment="CENTER">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="143.0" minWidth="10.0" prefWidth="61.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="247.0" minWidth="10.0" prefWidth="237.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints maxHeight="181.0" minHeight="0.0" prefHeight="45.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="413.0" minHeight="4.0" prefHeight="48.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="457.0" minHeight="0.0" prefHeight="51.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="443.0" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="443.0" minHeight="10.0" prefHeight="364.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Circle fill="DODGERBLUE" radius="9.0" stroke="BLACK" strokeType="INSIDE">
-                     <GridPane.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </GridPane.margin>
-                  </Circle>
-                  <Hyperlink onAction="#manageProducts" text="Manage Products" GridPane.columnIndex="1" />
-                  <Circle fill="DODGERBLUE" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="1">
-                     <GridPane.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </GridPane.margin>
-                  </Circle>
-                  <Circle fill="DODGERBLUE" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="2">
-                     <GridPane.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </GridPane.margin>
-                  </Circle>
-                  <Hyperlink onAction="#manageCustomers" text="Manage Customers" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Hyperlink text="Manage Suppliers" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Circle fill="DODGERBLUE" radius="9.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="3">
-                     <GridPane.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </GridPane.margin>
-                  </Circle>
-                  <Hyperlink text="Manage Purchase Orders" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-               </children>
-            </GridPane>
-         </left>
          <center>
             <AnchorPane id="CenterAnchorpane" fx:id="CenterAnchorpane" prefHeight="550.0" prefWidth="500.0">
                <children>
@@ -83,6 +43,62 @@
                </children>
             </AnchorPane>
          </center>
+         <left>
+            <Pane prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/HomePage.css" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox layoutX="5.0" layoutY="14.0" prefHeight="500.0" prefWidth="190.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#manageCustomers" prefHeight="52.0" prefWidth="190.0" styleClass="Button" stylesheets="@../css/HomePage.css" text=" Customers">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="190.0" styleClass="Button" text="Products">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="190.0" styleClass="Button" text="Dealer">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="190.0" styleClass="Button" text="Track Invoice">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="190.0" styleClass="Button" text="Generate Invoice">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </Pane>
+         </left>
       </BorderPane>
    </children>
+   <stylesheets>
+    	<URL value="@/css/HomePage.css" />
+    </stylesheets>
 </StackPane>

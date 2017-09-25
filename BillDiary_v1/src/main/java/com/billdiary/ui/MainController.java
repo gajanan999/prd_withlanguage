@@ -27,14 +27,14 @@ public class MainController extends Application{
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		/*Below fxml file will be loaded by SpringFxmlLoader */
+		/*Below fxml file will be loaded by SpringFxmlLoader 
 		try {
 			CreateSchema.CreateDatabase();
 
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		Parent root = (Parent) loader.load("/fxml/Login.fxml");
 		//Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/Login.fxml"));
 		//Stage stage = new Stage();
