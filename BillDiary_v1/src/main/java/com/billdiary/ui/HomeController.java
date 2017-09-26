@@ -17,7 +17,7 @@ public class HomeController {
 	@FXML public VBox rightvbox;
 	@FXML public AnchorPane CenterAnchorpane;
 	@FXML public StackPane manager;
-	
+	@FXML public  BorderPane inner_borderpane;
 	
 	@Autowired
 	public HomeController homeController;
@@ -34,10 +34,19 @@ public class HomeController {
 		//aa.getManagerScene();
 		SpringFxmlLoader loader=SpringFxmlLoader.getInstance();
 		//ResourceBundle bundle = ResourceBundle.getBundle("resources.UIResources");
-		AnchorPane addProductDetails=(AnchorPane) loader.load("/fxml/AddProductDetails.fxml");
+		StackPane addProductDetails=(StackPane) loader.load("/fxml/ManageProduct.fxml");
+		
+		//inner_borderpane.getChildren().clear();
+		//inner_borderpane.getChildren().add(addProductDetails);
 		//border.setCenter(addProductDetails);
+		Double width=CenterAnchorpane.getWidth();
+		Double height=CenterAnchorpane.getHeight();
 		CenterAnchorpane.getChildren().clear();
-		CenterAnchorpane.getChildren().add(addProductDetails);
+		addProductDetails.setMaxHeight(height);
+		addProductDetails.setMaxWidth(width);
+		
+		CenterAnchorpane.getChildren().add(addProductDetails);	
+		
 	}
 	
 	@FXML private void manageCustomers(ActionEvent event)
@@ -46,7 +55,13 @@ public class HomeController {
 		SpringFxmlLoader loader=SpringFxmlLoader.getInstance();
 		//ResourceBundle bundle = ResourceBundle.getBundle("resources.UIResources");
 		AnchorPane manageCustomer=(AnchorPane) loader.load("/fxml/ManageCustomer.fxml");
+		manageCustomer.autosize();
+		Double width=CenterAnchorpane.getWidth();
+		Double height=CenterAnchorpane.getHeight();
 		CenterAnchorpane.getChildren().clear();
+		manageCustomer.setMaxHeight(height);
+		manageCustomer.setMaxWidth(width);
+		
 		CenterAnchorpane.getChildren().add(manageCustomer);
 	}
 	/*public void getManagerScene()
