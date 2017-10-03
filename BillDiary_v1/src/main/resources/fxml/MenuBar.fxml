@@ -37,6 +37,11 @@
                   <MenuItem mnemonicParsing="false" text="Manage Suppliers" />
                   </items>
                 </Menu>
+                <Menu id="quick" mnemonicParsing="false" text="Quick pay">
+              	 <items>
+               	   <MenuItem fx:id="quick" mnemonicParsing="false" onAction="#OpenQuickPay" text="Open Quick pay" />
+              	 </items>
+            	</Menu>
               </menus>
             </MenuBar>
             <Region HBox.hgrow="ALWAYS" />

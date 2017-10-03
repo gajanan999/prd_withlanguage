@@ -103,5 +103,14 @@ public class MenuBarController {
 		SpringFxmlLoader.setLoc(locale);
 		
 	}
+	@FXML public void OpenQuickPay()
+	{
+		SpringFxmlLoader loader=SpringFxmlLoader.getInstance();
+		AnchorPane quickPay=(AnchorPane) loader.load("/fxml/Quick.fxml");
+		BorderPane root = new BorderPane();
+		root.setCenter(quickPay);
+		layoutController.loadWindow(root,"Quick pay",Constants.POPUP_WINDOW_WIDTH,Constants.POPUP_WINDOW_HEIGHT);
+		
+	}
 
 }
