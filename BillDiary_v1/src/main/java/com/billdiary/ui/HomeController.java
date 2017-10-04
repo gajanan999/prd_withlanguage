@@ -34,7 +34,7 @@ public class HomeController {
 		//aa.getManagerScene();
 		SpringFxmlLoader loader=SpringFxmlLoader.getInstance();
 		//ResourceBundle bundle = ResourceBundle.getBundle("resources.UIResources");
-		StackPane addProductDetails=(StackPane) loader.load("/fxml/ManageProduct.fxml");
+		AnchorPane addProductDetails=(AnchorPane) loader.load("/fxml/ManageProduct.fxml");
 		
 		//inner_borderpane.getChildren().clear();
 		//inner_borderpane.getChildren().add(addProductDetails);
