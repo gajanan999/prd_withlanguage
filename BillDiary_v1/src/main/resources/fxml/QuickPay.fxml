@@ -30,7 +30,7 @@
                   <Text layoutX="529.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount per Quantity" wrappingWidth="75.2890625" />
                   <TextField fx:id="amount" layoutX="604.0" layoutY="152.0" />
                   <Button layoutX="698.0" layoutY="199.0" mnemonicParsing="false" onAction="#AddToTable" text="ADD" />
-                  <TableView fx:id="billTable" layoutY="235.0" prefHeight="168.0" prefWidth="786.0">
+                  <TableView fx:id="billTable" layoutX="22.0" layoutY="235.0" prefHeight="168.0" prefWidth="753.0">
                     <columns>
                       <TableColumn fx:id="nameofProduct" prefWidth="199.0" text="Name of Product" />
                       <TableColumn fx:id="quantity" minWidth="0.0" prefWidth="172.0" text="Quantity" />
@@ -38,7 +38,7 @@
                         <TableColumn fx:id="totalamt" prefWidth="135.0" text="Total amount" />
                     </columns>
                      <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </padding>
                   </TableView>
                   <Button layoutX="14.0" layoutY="421.0" mnemonicParsing="false" onAction="#deleteButtonClicked" text="Delete" />

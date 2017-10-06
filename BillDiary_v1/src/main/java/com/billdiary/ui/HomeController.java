@@ -18,6 +18,9 @@ public class HomeController {
 	@FXML public AnchorPane CenterAnchorpane;
 	@FXML public StackPane manager;
 	@FXML public  BorderPane inner_borderpane;
+	@FXML public AnchorPane mainView;
+	
+	
 	
 	@Autowired
 	public HomeController homeController;
@@ -27,46 +30,44 @@ public class HomeController {
 	}
 	@FXML private void manageProducts(ActionEvent event)
 	{
-		
-		System.out.println(homeController.CenterAnchorpane.getChildren());
-		manager.setVisible(false);
-		//homeController.CenterAnchorpane.setVisible(false);
-		//aa.getManagerScene();
 		SpringFxmlLoader loader=SpringFxmlLoader.getInstance();
-		//ResourceBundle bundle = ResourceBundle.getBundle("resources.UIResources");
 		AnchorPane addProductDetails=(AnchorPane) loader.load("/fxml/ManageProduct.fxml");
-		
-		//inner_borderpane.getChildren().clear();
-		//inner_borderpane.getChildren().add(addProductDetails);
-		//border.setCenter(addProductDetails);
-		Double width=CenterAnchorpane.getWidth();
-		Double height=CenterAnchorpane.getHeight();
-		CenterAnchorpane.getChildren().clear();
-		addProductDetails.setMaxHeight(height);
-		addProductDetails.setMaxWidth(width);
-		
-		CenterAnchorpane.getChildren().add(addProductDetails);	
-		
+		if(setMainView(addProductDetails))
+		{
+			System.out.println("Manage Products window loaded successfully");
+		}else {
+			System.out.println("while loading Manage Products window some error has been occured ");
+		}	
 	}
 	
 	@FXML private void manageCustomers(ActionEvent event)
 	{
-		manager.setVisible(false);
 		SpringFxmlLoader loader=SpringFxmlLoader.getInstance();
-		//ResourceBundle bundle = ResourceBundle.getBundle("resources.UIResources");
 		AnchorPane manageCustomer=(AnchorPane) loader.load("/fxml/ManageCustomer.fxml");
 		manageCustomer.autosize();
-		Double width=CenterAnchorpane.getWidth();
-		Double height=CenterAnchorpane.getHeight();
-		CenterAnchorpane.getChildren().clear();
-		manageCustomer.setMaxHeight(height);
-		manageCustomer.setMaxWidth(width);
-		
-		CenterAnchorpane.getChildren().add(manageCustomer);
+		if(setMainView(manageCustomer))
+		{
+			System.out.println("Manage Customer window loaded successfully");
+		}else {
+			System.out.println("while loading Manage Customer window some error has been occured ");
+		}
 	}
-	/*public void getManagerScene()
-	{	
-		System.out.println(centerStackpane.getChildren());
+	
+	private boolean setMainView(AnchorPane mainInnerWindow)
+	{
+		boolean windowShow=false;
+		try
+		{
+		mainView.getChildren().clear();
+		mainView.getChildren().add(mainInnerWindow);
+		windowShow=true;
+		}catch(Exception e)
+		{
+			windowShow=false;
+			System.out.println(e.getMessage());
+		}
+		return windowShow;
 		
-	}*/
+	}
+	
 }

@@ -10,45 +10,17 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.GridPane?>
 
-<StackPane fx:id="homepage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" stylesheets="@../css/HomePage.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.billdiary.ui.HomeController">
+<StackPane fx:id="homepage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../css/HomePage.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.billdiary.ui.HomeController">
    <children>
-      <BorderPane id="borderpane" fx:id="borderpane" prefHeight="448.0" prefWidth="825.0">
+      <BorderPane id="borderpane" fx:id="borderpane" prefHeight="600.0" prefWidth="800.0">
          <bottom>
             <fx:include source="Footer.fxml" />
          </bottom>
          <top>
             <fx:include source="MenuBar.fxml" />
          </top>
-         <center>
-            <AnchorPane id="CenterAnchorpane" fx:id="CenterAnchorpane" prefHeight="550.0" prefWidth="500.0">
-               <children>
-                  <BorderPane fx:id="inner_borderpane" prefHeight="553.0" prefWidth="397.0">
-                     <center>
-                        <StackPane fx:id="manager" prefHeight="550.0" prefWidth="394.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <BarChart prefHeight="80.0" prefWidth="80.0" StackPane.alignment="CENTER">
-                                <xAxis>
-                                  <CategoryAxis label="Date" side="BOTTOM" />
-                                </xAxis>
-                                <yAxis>
-                                  <NumberAxis label="Total Sale" side="LEFT" upperBound="500.0" />
-                                </yAxis>
-                                 <StackPane.margin>
-                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                 </StackPane.margin>
-                              </BarChart>
-                           </children>
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
-                        </StackPane>
-                     </center>
-                  </BorderPane>
-               </children>
-            </AnchorPane>
-         </center>
          <left>
-            <Pane prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/HomePage.css" BorderPane.alignment="CENTER">
+            <Pane prefHeight="500.0" prefWidth="200.0" stylesheets="@../css/HomePage.css" BorderPane.alignment="CENTER">
                <children>
                   <VBox layoutX="5.0" layoutY="14.0" prefHeight="500.0" prefWidth="190.0">
                      <children>
@@ -100,6 +72,32 @@
                </children>
             </Pane>
          </left>
+         <center>
+            <ScrollPane prefHeight="500.0" prefWidth="600.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="554.0" prefWidth="598.0">
+                     <children>
+                        <TitledPane animated="false" layoutX="6.0" layoutY="6.0" prefHeight="543.0" prefWidth="584.0" text="Report">
+                          <content>
+                            <AnchorPane fx:id="mainView" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <BarChart layoutX="41.0" layoutY="184.0" prefHeight="108.0" prefWidth="500.0">
+                                      <xAxis>
+                                        <CategoryAxis side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis side="LEFT" />
+                                      </yAxis>
+                                    </BarChart>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+         </center>
       </BorderPane>
    </children>
    <stylesheets>

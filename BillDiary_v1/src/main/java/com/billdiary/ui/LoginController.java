@@ -85,24 +85,11 @@ public class LoginController {
     		if(loginService.doLogin(user))
     		{
     			actiontarget.setText("Login Successfull");
-    			//SpringFxmlLoader loader=mainController.getLoader();
-    			//String m=loader.getMessage("Main.Title");
-    			//title=new SimpleStringProperty(m);
     			((Node)(event.getSource())).getScene().getWindow().hide();
     			SpringFxmlLoader loader=SpringFxmlLoader.getInstance();
     			root1= (StackPane) loader.load("/fxml/Home.fxml");
     			
-    			//LayoutController layout=new LayoutController();
     			layoutController.loadWindow(root1, Constants.APPLICATION_TITLE,Constants.WINDOW_WIDTH,Constants.WINDOW_HEIGHT);
-    			
-    			/*
-    			 Scene scene = new Scene(root1,600,400);
-    			 
-    		     Stage stage=new Stage();
-    			 stage.setMaximized(true);
-    		     stage.setTitle("BillDiary version 1.0");
-    		     stage.setScene(scene);
-    		     stage.show();*/
     		}
     		else {
     			actiontarget.setText("Login failed");
