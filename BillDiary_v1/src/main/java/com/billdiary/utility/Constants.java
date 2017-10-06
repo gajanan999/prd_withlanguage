@@ -7,8 +7,8 @@ public class Constants {
 	public static final String DB_PASSWORD="gajanan";
 	public static final String DB_DRIVER="org.hsqldb.jdbc.JDBCDriver";
 	public static final String APPLICATION_TITLE="Welcome to Bill Diary version 1.0";
-	public static final int WINDOW_WIDTH=1200;
-	public static final int WINDOW_HEIGHT=650;
+	public static final int WINDOW_WIDTH=800;
+	public static final int WINDOW_HEIGHT=600;
 	public static final int POPUP_WINDOW_WIDTH=800;
 	public static final int POPUP_WINDOW_HEIGHT=600;
 }

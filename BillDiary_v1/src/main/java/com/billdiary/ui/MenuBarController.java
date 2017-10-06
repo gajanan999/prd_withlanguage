@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 
 import com.billdiary.config.SpringFxmlLoader;
 import com.billdiary.utility.Constants;
+import com.billdiary.utility.URLS;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,7 +33,7 @@ public class MenuBarController {
 		
 		SpringFxmlLoader loader=SpringFxmlLoader.getInstance();
 		//ResourceBundle bundle = ResourceBundle.getBundle("resources.UIResources");
-		AnchorPane addShop=(AnchorPane) loader.load("/fxml/AddShopDetails.fxml");
+		AnchorPane addShop=(AnchorPane) loader.load(URLS.ADD_SHOP_DETAILS_PAGE);
 		BorderPane root = new BorderPane();
 		root.setCenter(addShop);
 		layoutController.loadWindow(root,"Add Shop Details",Constants.POPUP_WINDOW_WIDTH,Constants.POPUP_WINDOW_HEIGHT);
@@ -51,7 +52,7 @@ public class MenuBarController {
 	{
 		
 		SpringFxmlLoader loader=SpringFxmlLoader.getInstance();
-		AnchorPane addProduct=(AnchorPane) loader.load("/fxml/AddProductDetails.fxml");
+		AnchorPane addProduct=(AnchorPane) loader.load(URLS.ADD_PRODUCT_DETAILS_PAGE);
 		BorderPane root = new BorderPane();
 		root.setCenter(addProduct);
 		layoutController.loadWindow(root,"Add Product Details",Constants.POPUP_WINDOW_WIDTH,Constants.POPUP_WINDOW_HEIGHT);
@@ -106,7 +107,7 @@ public class MenuBarController {
 	@FXML public void OpenQuickPay()
 	{
 		SpringFxmlLoader loader=SpringFxmlLoader.getInstance();
-		AnchorPane quickPay=(AnchorPane) loader.load("/fxml/QuickPay.fxml");
+		AnchorPane quickPay=(AnchorPane) loader.load(URLS.QUICK_PAY_PAGE);
 		BorderPane root = new BorderPane();
 		root.setCenter(quickPay);
 		layoutController.loadWindow(root,"Quick pay",Constants.POPUP_WINDOW_WIDTH,Constants.POPUP_WINDOW_HEIGHT);

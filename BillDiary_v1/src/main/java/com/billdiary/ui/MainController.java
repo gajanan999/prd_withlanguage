@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 import com.billdiary.config.SpringFxmlLoader;
 import com.billdiary.dao.CreateSchema;
 import com.billdiary.utility.Constants;
+import com.billdiary.utility.URLS;
 
 import javafx.application.Application;
 import javafx.scene.Parent;
@@ -35,7 +36,7 @@ public class MainController extends Application{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}*/
-		Parent root = (Parent) loader.load("/fxml/Login.fxml");
+		Parent root = (Parent) loader.load(URLS.LOGIN_PAGE);
 		//Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/Login.fxml"));
 		//Stage stage = new Stage();
 		Scene scene = new Scene(root, 800, 600); 

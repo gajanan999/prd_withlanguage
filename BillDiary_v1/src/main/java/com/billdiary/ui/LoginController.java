@@ -10,6 +10,7 @@ import com.billdiary.config.SpringFxmlLoader;
 import com.billdiary.model.User;
 import com.billdiary.service.LoginService;
 import com.billdiary.utility.Constants;
+import com.billdiary.utility.URLS;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -87,7 +88,7 @@ public class LoginController {
     			actiontarget.setText("Login Successfull");
     			((Node)(event.getSource())).getScene().getWindow().hide();
     			SpringFxmlLoader loader=SpringFxmlLoader.getInstance();
-    			root1= (StackPane) loader.load("/fxml/Home.fxml");
+    			root1= (StackPane) loader.load(URLS.HOME_PAGE);
     			
     			layoutController.loadWindow(root1, Constants.APPLICATION_TITLE,Constants.WINDOW_WIDTH,Constants.WINDOW_HEIGHT);
     		}
