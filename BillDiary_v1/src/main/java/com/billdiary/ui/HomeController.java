@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.billdiary.config.SpringFxmlLoader;
+import com.billdiary.utility.Constants;
 import com.billdiary.utility.URLS;
 
 import javafx.event.ActionEvent;
@@ -20,10 +21,17 @@ public class HomeController {
 	@FXML public  BorderPane borderpane;
 	@FXML public AnchorPane mainView;
 	@FXML public Text MainTitle;
+	public  StackPane MainStage= new StackPane();
+	
+	AnchorPane mainInnerWindow;
+	
 	
 	
 	@Autowired
 	public HomeController homeController;
+	
+	@Autowired
+	public LayoutController layoutController;
 	
 	public  StackPane getRoot() {
 		return homepage;
@@ -31,9 +39,9 @@ public class HomeController {
 	@FXML private void manageProducts(ActionEvent event)
 	{
 		SpringFxmlLoader loader=SpringFxmlLoader.getInstance();
-		AnchorPane addProductDetails=(AnchorPane) loader.load(URLS.MANAGE_PRODUCT_PAGE);
+		 mainInnerWindow=(AnchorPane) loader.load(URLS.MANAGE_PRODUCT_PAGE);
 		MainTitle.setText("Manage Products");
-		if(setMainView(addProductDetails))
+		if(setMainView())
 		{
 			System.out.println("Manage Products window loaded successfully");
 		}else {
@@ -44,9 +52,9 @@ public class HomeController {
 	@FXML private void manageCustomers(ActionEvent event)
 	{
 		SpringFxmlLoader loader=SpringFxmlLoader.getInstance();
-		AnchorPane manageCustomer=(AnchorPane) loader.load(URLS.MANAGE_CUSTOMER_PAGE);
+		 mainInnerWindow=(AnchorPane) loader.load(URLS.MANAGE_CUSTOMER_PAGE);
 	    MainTitle.setText("Manage Customers");
-		if(setMainView(manageCustomer))
+		if(setMainView())
 		{
 			System.out.println("Manage Customer window loaded successfully");
 		}else {
@@ -54,20 +62,45 @@ public class HomeController {
 		}
 	}
 	
-	private boolean setMainView(AnchorPane mainInnerWindow)
+	public void createMainStage(StackPane mainView)
+	{
+		layoutController.loadWindow(MainStage, Constants.APPLICATION_TITLE,Constants.WINDOW_WIDTH,Constants.WINDOW_HEIGHT);
+	}
+	
+	private boolean setMainView()
 	{
 		boolean windowShow=false;
 		try
 		{
 		mainView.getChildren().clear();
-		//mainInnerWindow.setPrefHeight(600);
-		//mainInnerWindow.setPrefWidth(500);
-		//mainInnerWindow.autosize();
+		
+		mainInnerWindow.setLayoutX(mainView.getLayoutX());
+		mainInnerWindow.setLayoutY(mainView.getLayoutY());
+		
+		System.out.println("new view"+mainInnerWindow.getWidth()+ " "+mainInnerWindow.getHeight());
+		System.out.println("mainview"+mainView.getWidth()+ " "+mainView.getHeight());
+		
+		mainInnerWindow.setMaxHeight(mainView.getHeight());
+		mainInnerWindow.setMaxWidth(mainView.getWidth());
+		
+		mainInnerWindow.resize(mainView.getWidth(), mainView.getHeight());
+		System.out.println("new view"+mainInnerWindow.getWidth()+ " "+mainInnerWindow.getHeight()+" :"+mainInnerWindow.computeAreaInScreen());
+		System.out.println("mainview:"+mainView.computeAreaInScreen());
+		mainInnerWindow.setLayoutX(mainView.getLayoutX());
+		mainInnerWindow.setLayoutY(mainView.getLayoutY());
+		
+		
+		AnchorPane.setTopAnchor(mainInnerWindow, 32.0);
+        AnchorPane.setRightAnchor(mainInnerWindow, 0.0);
+        AnchorPane.setLeftAnchor(mainInnerWindow, 0.0);
+        AnchorPane.setBottomAnchor(mainInnerWindow, 0.0);
+		
 		mainView.getChildren().add(mainInnerWindow);
-		//homepage.autosize();
-		//homepage.setPrefHeight(650);
-	//	homepage.setPrefWidth(1200);
-		//homepage.autosize();
+		mainInnerWindow.resize(mainView.getWidth(), mainView.getHeight());
+		mainView.autosize();
+		
+		
+		
 		windowShow=true;
 		}catch(Exception e)
 		{

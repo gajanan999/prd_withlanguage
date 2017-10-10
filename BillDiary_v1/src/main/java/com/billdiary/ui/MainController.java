@@ -12,12 +12,15 @@ import com.billdiary.utility.URLS;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class MainController extends Application{
 	
 	final static Logger LOGGER = Logger.getLogger(MainController.class);
 	private static final SpringFxmlLoader loader =SpringFxmlLoader.getInstance();
+	
+	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

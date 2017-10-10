@@ -29,7 +29,7 @@ import javafx.stage.Stage;
 public class LoginController {
 	
 	public static BorderPane root=new BorderPane();
-	public static StackPane root1= new StackPane();
+	public static StackPane MainStage= new StackPane();
 	
 	@Autowired
 	public LayoutController layoutController;
@@ -88,9 +88,9 @@ public class LoginController {
     			actiontarget.setText("Login Successfull");
     			((Node)(event.getSource())).getScene().getWindow().hide();
     			SpringFxmlLoader loader=SpringFxmlLoader.getInstance();
-    			root1= (StackPane) loader.load(URLS.HOME_PAGE);
+    			MainStage= (StackPane) loader.load(URLS.HOME_PAGE);
     			
-    			layoutController.loadWindow(root1, Constants.APPLICATION_TITLE,Constants.WINDOW_WIDTH,Constants.WINDOW_HEIGHT);
+    			layoutController.loadWindow(MainStage, Constants.APPLICATION_TITLE,Constants.WINDOW_WIDTH,Constants.WINDOW_HEIGHT);
     		}
     		else {
     			actiontarget.setText("Login failed");
