@@ -20,7 +20,7 @@ public class HomeController {
 	@FXML public StackPane homepage;
 	@FXML public  BorderPane borderpane;
 	@FXML public AnchorPane mainView;
-	@FXML public Text MainTitle;
+	//@FXML public Text MainTitle;
 	public  StackPane MainStage= new StackPane();
 	
 	AnchorPane mainInnerWindow;
@@ -40,7 +40,7 @@ public class HomeController {
 	{
 		SpringFxmlLoader loader=SpringFxmlLoader.getInstance();
 		 mainInnerWindow=(AnchorPane) loader.load(URLS.MANAGE_PRODUCT_PAGE);
-		MainTitle.setText("Manage Products");
+		//MainTitle.setText("Manage Products");
 		if(setMainView())
 		{
 			System.out.println("Manage Products window loaded successfully");
@@ -53,7 +53,7 @@ public class HomeController {
 	{
 		SpringFxmlLoader loader=SpringFxmlLoader.getInstance();
 		 mainInnerWindow=(AnchorPane) loader.load(URLS.MANAGE_CUSTOMER_PAGE);
-	    MainTitle.setText("Manage Customers");
+	  //  MainTitle.setText("Manage Customers");
 		if(setMainView())
 		{
 			System.out.println("Manage Customer window loaded successfully");
@@ -90,7 +90,7 @@ public class HomeController {
 		mainInnerWindow.setLayoutY(mainView.getLayoutY());
 		
 		
-		AnchorPane.setTopAnchor(mainInnerWindow, 32.0);
+		AnchorPane.setTopAnchor(mainInnerWindow, 0.0);
         AnchorPane.setRightAnchor(mainInnerWindow, 0.0);
         AnchorPane.setLeftAnchor(mainInnerWindow, 0.0);
         AnchorPane.setBottomAnchor(mainInnerWindow, 0.0);

@@ -3,6 +3,7 @@ package com.billdiary.utility;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.URL;
 
 import javax.xml.transform.Result;
 import javax.xml.transform.Transformer;
@@ -55,7 +56,9 @@ public class FOPPdfDemo {
 	 */
 	public void convertToPDF() throws IOException, FOPException, TransformerException {
 		// the XSL FO file
-		File xsltFile = new File(RESOURCES_DIR + "//template.xsl");
+		URL url = getClass().getResource("/files/template.xsl");
+		File xsltFile = new File(url.getPath());
+		
 		// the XML file which provides the input
 		StreamSource xmlSource = new StreamSource(new File(RESOURCES_DIR + "//Employees.xml"));
 		// create an instance of fop factory
@@ -96,7 +99,8 @@ public class FOPPdfDemo {
 	 */
 	public void convertToFO() throws IOException, FOPException, TransformerException {
 		// the XSL FO file
-		File xsltFile = new File(RESOURCES_DIR + "//template.xsl");
+				URL url = getClass().getResource("/files/template.xsl");
+				File xsltFile = new File(url.getPath());
 
 		/*
 		 * TransformerFactory factory = TransformerFactory.newInstance();
