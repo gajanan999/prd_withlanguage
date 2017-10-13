@@ -1,5 +1,6 @@
 package com.billdiary.ui;
 import java.awt.event.ActionEvent;
+
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -25,6 +26,7 @@ import org.apache.fop.apps.FopFactory;
 import org.apache.fop.apps.MimeConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 
 import com.billdiary.config.SpringFxmlLoader;
 import com.billdiary.model.QuickProductDetails;
@@ -32,6 +34,8 @@ import com.billdiary.utility.Constants;
 import com.billdiary.utility.FOPPdfDemo;
 
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
@@ -56,6 +60,12 @@ import javafx.util.Callback;
 public class QuickPayController  {
 	@Autowired
 	public LayoutController layoutController;
+	
+	@Autowired
+	FOPPdfDemo pdfdemo;
+	
+	
+	
 	@FXML private TextField Name;
 	@FXML private TextArea address;
 	@FXML private TextField phoneno;
@@ -132,7 +142,13 @@ public class QuickPayController  {
 	}
 	@FXML public void Calculate()
 	{
-		System.out.println("inside in calculate");
+		/*
+		if(StringUtils.isEmpty(Discount.getText())) {
+			System.out.println("Discount is empty");
+		}
+		*/
+		if(!Discount.getText().isEmpty() )
+		{
 		int discount=Integer.parseInt(Discount.getText());
 		System.out.println(discount);
 		float DiscountedAmount=(discount*Float.parseFloat(total.getText()))/100;
@@ -141,6 +157,7 @@ public class QuickPayController  {
 		System.out.println(finalAmount);
 		String amount=""+finalAmount;
 		TotalAfterDiscount.setText(amount);
+		}
 		
 	}
 	@FXML private void AddToTable()
@@ -169,8 +186,8 @@ public class QuickPayController  {
 	@FXML private void generateBill() throws IOException, FOPException, TransformerException
 		{
 			generateXML();
-			FOPPdfDemo a=new FOPPdfDemo();
-			a.convertToPDF();
+			//FOPPdfDemo a=new FOPPdfDemo();
+			pdfdemo.convertToPDF();
 		 }
 	public void generateXML()
 	{
@@ -226,6 +243,21 @@ public class QuickPayController  {
 		((Node)(event.getSource())).getScene().getWindow().hide();
 		AddToTable();
 		
+	}
+	
+	@FXML public void initialize(){
+		//File file=new File("C:\\Users\\HP\\Desktop\\pay-bills logo.jpg");
+		//Image image=new Image(file.toURI().toString());
+		//Logo.setImage(image);
+		Discount.textProperty().addListener(new ChangeListener<String>() {
+			
+		    @Override
+		    public void changed(ObservableValue<? extends String> observable,
+		            String oldValue, String newValue) {
+		    	
+		        Calculate();
+		    }
+		});
 	}
 	
 	

@@ -1,6 +1,7 @@
 package com.billdiary.utility;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URL;
@@ -18,11 +19,19 @@ import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;
 import org.apache.fop.apps.MimeConstants;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+
+@Component
 public class FOPPdfDemo {
 	
 	public static final String RESOURCES_DIR;
 	public static final String OUTPUT_DIR;
+	
+	@Autowired
+	GeneralUitilies utility;
+	
 	
 	static {
 		//RESOURCES_DIR = "src//main//resources//";
@@ -33,18 +42,8 @@ public class FOPPdfDemo {
 	
 	public static void main(String[] args) {
 		FOPPdfDemo fOPPdfDemo = new FOPPdfDemo();
-		try {
-			fOPPdfDemo.convertToPDF();
-			} catch (FOPException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (TransformerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		fOPPdfDemo.convertToPDF();
+			
 	}
 
 	/**
@@ -54,22 +53,21 @@ public class FOPPdfDemo {
 	 * @throws FOPException
 	 * @throws TransformerException
 	 */
-	public void convertToPDF() throws IOException, FOPException, TransformerException {
+	public void convertToPDF(){
 		// the XSL FO file
-		URL url = getClass().getResource("/files/template.xsl");
-		File xsltFile = new File(url.getPath());
 		
-		// the XML file which provides the input
-		StreamSource xmlSource = new StreamSource(new File(RESOURCES_DIR + "//Employees.xml"));
-		// create an instance of fop factory
-		FopFactory fopFactory = FopFactory.newInstance(new File(".").toURI());
-		// a user agent is needed for transformation
-		FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
-		// Setup output
-		OutputStream out;
-		out = new java.io.FileOutputStream(OUTPUT_DIR + "//Bill.pdf");
-
+		OutputStream out=null;
 		try {
+			//GeneralUitilies utility=new GeneralUitilies();	
+			File xsltFile =utility.getPDFTemplate();
+			// the XML file which provides the input
+			StreamSource xmlSource = new StreamSource(new File(RESOURCES_DIR + "//Employees.xml"));
+			// create an instance of fop factory
+			FopFactory fopFactory = FopFactory.newInstance(new File(".").toURI());
+			// a user agent is needed for transformation
+			FOUserAgent foUserAgent = fopFactory.newFOUserAgent();
+			// Setup output
+			out = new java.io.FileOutputStream(OUTPUT_DIR + "//Bill.pdf");
 			// Construct fop with desired output format
 			Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, foUserAgent, out);
 
@@ -85,8 +83,21 @@ public class FOPPdfDemo {
 			// That's where the XML is first transformed to XSL-FO and then
 			// PDF is created
 			transformer.transform(xmlSource, res);
-		} finally {
-			out.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+		finally {
+			try {
+				out.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				System.out.println(e.getMessage());
+			}
 		}
 	}
 

@@ -23,5 +23,12 @@ public interface URLS {
 	/* QuickPay page  */
 	public static final String QUICK_PAY_PAGE="/fxml/QuickPay.fxml";
 	
+	
+	
+	/* template.xsl : file is used for PDF Generation (i.e Invoice Generation) */
+	public static final String PDF_TEMPLATE="C://bill//template.xsl";
+	
+	
+	
 
 }
