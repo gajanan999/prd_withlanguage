@@ -1,24 +1,13 @@
 package com.billdiary.ui;
-import java.awt.event.ActionEvent;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
+
 import java.io.PrintWriter;
-import java.net.URL;
-import java.nio.file.Paths;
+
+
 import java.time.LocalDate;
 
-import javax.naming.spi.DirStateFactory.Result;
-import javax.xml.transform.Source;
-import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.sax.SAXResult;
-import javax.xml.transform.stax.StAXResult;
-import javax.xml.transform.stream.StreamSource;
 
 import org.apache.fop.apps.FOPException;
 import org.apache.fop.apps.Fop;
@@ -96,7 +85,7 @@ public class QuickPayController  {
 		b.forEach(a::remove);
 		//data.remove(a);
 		//AddToTable();
-		float totalamt=(float)0.0;
+		
 		t1=0;
 		for(int i=0;i<data.size();i++)
 		{	
