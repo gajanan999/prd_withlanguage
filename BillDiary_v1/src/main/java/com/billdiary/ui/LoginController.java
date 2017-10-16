@@ -7,7 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.billdiary.config.SpringFxmlLoader;
-import com.billdiary.model.User;
+
+import com.billdiary.model.User1;
 import com.billdiary.service.LoginService;
 import com.billdiary.utility.Constants;
 import com.billdiary.utility.URLS;
@@ -59,7 +60,7 @@ public class LoginController {
 	
 	
 	@Autowired
-	private User user;
+	private User1 user;
 	
 	@FXML private Text actiontarget;
 	@FXML private TextField textField;

@@ -7,7 +7,7 @@ import java.util.Map;
 
 //import org.apache.log4j.Logger;
 
-//public class GenericDAOImpl extends JpaDaoSupport implements GenericDAO
+//public class GenericDAOImpl extends JpaDaoSupport implements GenericDAO{
 public class GenericDAOImpl  implements GenericDAO {
 	
 	

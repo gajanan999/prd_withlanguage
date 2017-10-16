@@ -6,6 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.persistence.EntityManagerFactory;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 //import org.apache.log4j.Logger;
 
 
@@ -14,6 +18,9 @@ import com.billdiary.utility.Constants;
 public class CreateSchema {
 	
 	//final static Logger LOGGER = Logger.getLogger(CreateSchema.class);
+	
+	@Autowired
+	EntityManagerFactory entityManagerfactory;
 	
 	public static boolean CreateDatabase() throws ClassNotFoundException, SQLException
 	{
