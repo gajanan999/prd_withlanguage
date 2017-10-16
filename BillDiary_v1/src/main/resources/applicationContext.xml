@@ -47,6 +47,10 @@
 	</bean>
 
 
+	<bean
+   class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+	
+
 	<!--  
 	<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource"
 		destroy-method="close">

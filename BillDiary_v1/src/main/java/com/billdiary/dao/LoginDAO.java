@@ -40,34 +40,6 @@ public class LoginDAO extends AbstractJpaDAO< User >{
 	//	LOGGER.debug("In method LoginDAO:doLogin Entry ");
 		boolean userLogged=true;
 		
-		/*
-		try {
-			Class.forName(Constants.DB_DRIVER);
-			 connection = DriverManager.getConnection(Constants.DB_URL,Constants.DB_USERNAME,Constants.DB_PASSWORD);
-			 st = connection.prepareStatement("select * from user");
-		     r1=st.executeQuery();
-		    while(r1.next())
-			   {
-				   System.out.println(r1.getString(2)+" "+r1.getString(3));
-			   }
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		finally {
-			
-			try {
-				r1.close();
-				st.close();
-				connection.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			
-		}
-		*/
 		try {
 		User u=findOne(1);
 		if(null!=u)

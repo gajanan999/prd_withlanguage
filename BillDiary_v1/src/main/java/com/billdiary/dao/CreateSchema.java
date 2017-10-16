@@ -6,21 +6,45 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityManager;
+
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 //import org.apache.log4j.Logger;
 
 
 import com.billdiary.utility.Constants;
 
+
+@Repository
 public class CreateSchema {
 	
 	//final static Logger LOGGER = Logger.getLogger(CreateSchema.class);
 	
-	@Autowired
-	EntityManagerFactory entityManagerfactory;
+	/**
+	 * Constant for unchecked.
+	 */
+	private static final String UNCHECKED = "unchecked";
+
+	/**
+	 * Constant for rawtypes.
+	 */
+	private static final String RAW_TYPES = "rawtypes";
+	
+	
+	/**
+	 * Constant for batchSize.
+	 */
+	private static final Integer batchSize = 10;
+	
+	@PersistenceContext
+	EntityManager entityManager;
+	
+	
 	
 	public static boolean CreateDatabase() throws ClassNotFoundException, SQLException
 	{
@@ -49,6 +73,23 @@ public class CreateSchema {
 		
 		return dbCreated;
 		
+	}
+	@SuppressWarnings({ UNCHECKED, RAW_TYPES })
+	public  Integer executeNativeSQLQuery(final String nativeSQLQuery) {
+		System.out.println("hi");
+		int i=0;
+		
+		
+		/**
+		 * Check this code what is happing in it.
+		 */
+		if(entityManager!=null) {
+		final Query query = entityManager.createNativeQuery(nativeSQLQuery);
+		
+		System.out.println("hi1");
+		 i=query.executeUpdate();
+		System.out.println("hi2");}
+		return i;	
 	}
 
 }

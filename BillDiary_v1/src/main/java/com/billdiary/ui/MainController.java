@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 import com.billdiary.config.SpringFxmlLoader;
 import com.billdiary.dao.CreateSchema;
 import com.billdiary.utility.Constants;
+import com.billdiary.utility.DAOConstants;
 import com.billdiary.utility.URLS;
 
 import javafx.application.Application;
@@ -31,14 +32,16 @@ public class MainController extends Application{
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		/*Below fxml file will be loaded by SpringFxmlLoader 
+		//Below fxml file will be loaded by SpringFxmlLoader 
 		try {
-			CreateSchema.CreateDatabase();
+			CreateSchema c=new CreateSchema();
+			int i=c.executeNativeSQLQuery(DAOConstants.CREATE_USER_TABLE);
+		//	System.out.println(i);
 
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		Parent root = (Parent) loader.load(URLS.LOGIN_PAGE);
 		//Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/Login.fxml"));
 		//Stage stage = new Stage();
